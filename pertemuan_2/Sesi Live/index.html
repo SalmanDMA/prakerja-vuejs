@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Demo Vue CLI</title>
+</head>
+<body>
+ <div id="app">
+  <p v-html="message"></p>
+  <img :src="src" alt="photo dummy">
+  <p v-text="test"></p>
+  <input type="text" v-model="mahasiswa" />
+  <p> {{ mahasiswa }}</p>
+  <button @click="lakukanSesuatu">Lakukan Sesuatu</button>
+  <ul>
+   <li v-for="buah in listBuah" :key="buah">{{ buah }}</li>
+  </ul>
+  <p>{{ counter }}</p>
+  <button @click="tambahAngka">Tambah Angka</button>
+ </div>
+
+ 
+ <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+ <script>
+  const vueApp = new Vue({
+    el: '#app',
+    data: {
+      message: '<b>Hello Peserta Vue Js Batch 5!</b>',
+      src: 'https://picsum.photos/200/300',
+      test: '',
+      mahasiswa: '',
+      listBuah: [
+        'Apel',
+        'Jeruk',
+        'Mangga',
+        'Semangka'
+      ],
+      counter : 0
+    },
+    methods: {
+     lakukanSesuatu () {
+      alert(`Hello Mahasiswa : ${this.mahasiswa}`);
+     },
+     tambahAngka() {
+      return this.counter += 1
+     }
+    }
+  })
+
+  vueApp.test = 'Hello World !'
+ </script>
+</body>
+</html>
